@@ -10,3 +10,9 @@ def form(request):
 
 def table(request):
     return render(request,'ninja/table.html')
+
+def signin(request):
+    return render(request,'ninja/signin.html')
+
+def signup(request):
+    return render(request,'ninja/signup.html')
