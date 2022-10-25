@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
-from .models import user
+from .models import user , poweroff
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
 def index(request):
-    return render(request,'ninja/index.html', {'user': request.user})
+    powers = poweroff.objects.all()
+    return render(request,'ninja/index.html', {'user': request.user , 'powers' : powers} )
 
 def form(request):
     return render(request,'ninja/form.html' , {'user': request.user})
@@ -15,7 +16,9 @@ def table(request):
     return render(request,'ninja/table.html' , {'user': request.user})
 
 def signup(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect('/index')
+    elif request.method == 'POST':
         name = request.POST.get('name')
         print(name)
         email = request.POST.get('email')
@@ -25,12 +28,14 @@ def signup(request):
         authUser = User.objects.create_user(name, email, password)
         authUser.save()
         Curruser.save()
-        return redirect('/index')
+        return redirect('/')
     else:
         return render(request,'ninja/signup.html')
 
 def signin(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect('/index')
+    elif request.method == 'POST':
         name = request.POST.get('name')
         password = request.POST.get('password')
         print(name, password)
@@ -42,3 +47,7 @@ def signin(request):
             return render(request, 'ninja/signin.html')
     else:
         return render(request, 'ninja/signin.html')
+def user_logout(request):
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect('/')
