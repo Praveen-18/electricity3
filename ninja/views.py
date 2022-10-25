@@ -12,9 +12,6 @@ def index(request):
 def form(request):
     return render(request,'ninja/form.html' , {'user': request.user})
 
-def table(request):
-    return render(request,'ninja/table.html' , {'user': request.user})
-
 def signup(request):
     if request.user.is_authenticated:
         return redirect('/index')
