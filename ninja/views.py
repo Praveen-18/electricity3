@@ -17,9 +17,8 @@ def form(request):
         complaints = request.POST.get('complaints')
         curr=form1(name=name,phonenumber=phonenumber,email=email,complaints=complaints)
         curr.save()
-        return render(request,'ninja/form.html' , {'user': request.user})
+        return render(request, 'ninja/form.html', {'user': request.user})
     return render(request,'ninja/form.html' , {'user': request.user})
-
 
 def signup(request):
     if request.user.is_authenticated:
@@ -57,4 +56,3 @@ def user_logout(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
-
