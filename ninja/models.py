@@ -23,4 +23,12 @@ class poweroff(models.Model):
         return self.place
 
 
+class form1(models.Model):
+    name=models.CharField(max_length=100)
+    phonenumber=models.CharField(max_length=100)
+    email=models.EmailField()
+    complaints=models.TextField()
 
+
+    def __str__(self):
+        return self.name

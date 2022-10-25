@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
-from .models import user , poweroff
+from .models import user , poweroff,form1
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
@@ -10,7 +10,16 @@ def index(request):
     return render(request,'ninja/index.html', {'user': request.user , 'powers' : powers} )
 
 def form(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        phonenumber = request.POST.get('phonenumber')
+        email = request.POST.get('email')
+        complaints = request.POST.get('complaints')
+        curr=form1(name=name,phonenumber=phonenumber,email=email,complaints=complaints)
+        curr.save()
+        return render(request,'ninja/form.html' , {'user': request.user})
     return render(request,'ninja/form.html' , {'user': request.user})
+
 
 def signup(request):
     if request.user.is_authenticated:
@@ -48,3 +57,4 @@ def user_logout(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
+

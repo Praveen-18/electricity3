@@ -1,36 +1,38 @@
 {% extends 'ninja/base.html' %}
 {% block content %}
+
             <div class="container-fluid pt-4 px-4">
                     <div class="col-sm-12 col-xl-12">
+                        <form  method="POST">
+    {% csrf_token %}
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Floating Label</h6>
+                            <h6 class="mb-4">Report Here!!!</h6>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
+                                <input name="name" type="text" class="form-control" id="floatingInput">
                                 <label for="floatingInput">Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPassword"
-                                    placeholder="Password">
+                                <input name="phonenumber" type="text" class="form-control" id="floatingPassword">
                                 <label for="floatingPassword">Phone Number</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="floatingSelect"
-                                    aria-label="Floating label select example">
-                                    <label>
-                                    <option selected>Select City</option></label>
-                                    <option value="1">Chennai</option>
-                                    <option value="2">Madurai</option>
-                                    <option value="3">Dharmapuri</option>
-                                </select>
+                                <input name="email" type="text" class="form-control" id="floatingPassword"
+                                    >
+                                <label for="floatingPassword">email</label>
                             </div>
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here"
-                                    id="floatingTextarea" style="height: 150px;"></textarea>
+                            <div class="form-floating mb-3">
+                                <textarea name="complaints"  class="form-control" placeholder="Leave a comment here"
+                                          id="floatingTextarea"></textarea>
                                 <label for="floatingTextarea">Complaint's</label>
                             </div>
+<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Submit</button>
                         </div>
+
+                        </form>
+
                     </div>
+            </div>
+
 
 
 
