@@ -1,43 +1,55 @@
 {% extends 'ninja/base.html' %}
 {% block content %}
+    <head>
+<style>
+    .grid{
+        display: grid;
+        place-items: center;
+        font-size: 25px;
+        height:500px;
+    }
+</style>
+    </head>
+        <div class="container-fluid pt-4 px-4" style="justify-content: center">
+            <div class="grid">
+            <div class="col-sm-10 col-xl-6" style="justify-content: center">
+                <form method="POST" style="justify-content: center">
+                    {% csrf_token %}
 
-            <div class="container-fluid pt-4 px-4">
-                    <div class="col-sm-12 col-xl-12">
-                        <form  method="POST">
-    {% csrf_token %}
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Report Here!!!</h6>
-                            <div class="form-floating mb-3">
-                                <input name="name" type="text" class="form-control" id="floatingInput">
-                                <label for="floatingInput">Name</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input name="phonenumber" type="text" class="form-control" id="floatingPassword">
-                                <label for="floatingPassword">Phone Number</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input name="email" type="text" class="form-control" id="floatingPassword"
-                                    >
-                                <label for="floatingPassword">email</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea name="complaints"  class="form-control" placeholder="Leave a comment here"
-                                          id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Complaint's</label>
-                            </div>
-<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Submit</button>
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-4">Report Here!!!</h6>
+                        <div class="form-floating mb-3" style="justify-content: center">
+                            <input name="name" type="text" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Name</label>
                         </div>
-
-                        </form>
-
+                        <div class="form-floating mb-3" style="justify-content: center">
+                            <input name="phonenumber" type="text" class="form-control" id="floatingPassword">
+                            <label for="floatingPassword">Phone Number</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="email" type="text" class="form-control" id="floatingPassword"
+                            >
+                            <label for="floatingPassword">email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                                <textarea name="complaints" class="form-control" placeholder="Leave a comment here"
+                                          id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Complaint's</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Submit</button>
                     </div>
+
+                </form>
+
             </div>
 
+        </div>
+
+    </div>
 
 
 
 
-
-            <!-- Footer Start -->
+    <!-- Footer Start -->
 
 {% endblock %}
