@@ -41,7 +41,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="{% url 'index' %}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><img height="40px" width="40px" src="{% static 'ninja/img/logo-removebg-preview.png' %}" alt="sd">  EB Info</h3>
+                    <h3 class="text-primary"><img height="40px" width="40px" src="{% static 'ninja/img/logo-removebg-preview.png' %}" alt="sd">  Electrifo</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -55,6 +55,25 @@
                 <div class="navbar-nav w-100">
                     <a href="{% url 'index' %}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{% url 'form' %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <br>
+                     <div class="text-center">
+                    <div class="text-center">
+                        <div id="google_translate_element"></div>
+                    </div>
+
+
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                        }
+                    </script>
+
+                    <script type="text/javascript"
+                            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                </div>
+
+                <script type="text/javascript"
+                        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                 </div>
             </nav>
         </div>
@@ -131,6 +150,10 @@
     <!-- Template Javascript -->
     <script src="{%  static 'ninja/js/main.js'%}"></script>
     <script>
+        function removeGoogleTranslate(){
+            var googleTranslateElementInit = document.getElementById('google_translate_element');
+            googleTranslateElementInit.parentNode.removeChild(googleTranslateElementInit);
+        }
         function search_redirect() {
             console.log("yes");
             var query = document.getElementById("search_bar").value;
