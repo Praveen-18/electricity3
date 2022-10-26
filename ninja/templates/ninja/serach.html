@@ -1,0 +1,44 @@
+{% extends 'ninja/base.html' %}
+{% block content %}
+       <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Recent Power Cut</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">Place</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Power off</th>
+                                    <th scope="col">Power On</th>
+                                    <th scope="col">Problem</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for power in powers %}
+                                    {% if power.place == search %}
+                                        <tr>
+                                            <td>{{power.place}}</td>
+                                            <td>{{power.date}}</td>
+                                            <td>{{power.Off_time}}</td>
+                                            <td>{{power.On_time}}</td>
+                                            <td>{{power.reason}}</td>
+                                            <td>{{power.status}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+
+            <!-- Page level plugins -->
+            <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+
+{% endblock %}

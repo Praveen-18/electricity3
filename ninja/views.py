@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     powers = poweroff.objects.all()
-    return render(request,'ninja/index.html', {'user': request.user , 'powers' : powers} )
+    return render(request, 'ninja/index.html', {'user': request.user, 'powers': powers})
 
 def form(request):
     if request.method=="POST":
@@ -56,3 +56,7 @@ def user_logout(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
+
+def search_result(request, search_query):
+    powers = poweroff.objects.all()
+    return render(request, 'ninja/serach.html', {'user': request.user, 'powers': powers , 'search': search_query })
